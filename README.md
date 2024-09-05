@@ -4,10 +4,7 @@
 ![test](https://github.com/zero-to-prod/dynamic-setter/actions/workflows/phpunit.yml/badge.svg)
 ![Downloads](https://img.shields.io/packagist/dt/zero-to-prod/dynamic-setter.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/zero-to-prod/dynamic-setter&#41)
 
-
-A wrapper for the [`stream_context_create()`](https://www.php.net/manual/en/function.dynamic-setter-create.php) method.
-
-It provides classes that define all the options for this method.
+Fluently set class properties with dynamic methods.
 
 ## Installation
 
@@ -18,10 +15,10 @@ composer require zerotoprod/dynamic-setter
 ```
 
 ## Usage
-The DynamicSetter trait allows you to easily create class instances and dynamically set properties through method chaining. 
-It provides a simple way to manage object instantiation and property setting with set_* methods.
+The `DynamicSetter` trait allows you to easily create class instances and dynamically set properties through method chaining. 
+It provides a simple way to manage object instantiation and property setting with `set_*` methods.
 
-To use the DynamicSetter trait, include it in your class and define the properties you want to set dynamically.
+To use the `DynamicSetter` trait, include it in your class and define the properties you want to set dynamically.
 ```php
 use Zerotoprod\StreamContext\DynamicSetter;
 

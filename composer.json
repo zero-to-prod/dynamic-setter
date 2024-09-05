@@ -1,7 +1,7 @@
 {
   "type": "library",
   "name": "zero-to-prod/dynamic-setter",
-  "description": "Dynamically set properties.",
+  "description": "Fluently set class properties with dynamic methods.",
   "keywords": [
     "dynamic-setter",
     "Dynamic Setter",
