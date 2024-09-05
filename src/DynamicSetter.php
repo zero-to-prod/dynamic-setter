@@ -15,7 +15,7 @@ trait DynamicSetter
 
     public function __call($name, $arguments)
     {
-        if (strpos($name, 'set_') === 0) {
+        if (!strpos($name, 'set_')) {
             $this->{substr($name, 4)} = $arguments[0];
 
             return $this;

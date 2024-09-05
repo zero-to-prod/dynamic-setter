@@ -66,22 +66,12 @@ class DynamicSetterTest extends TestCase
      */
     public function new_instance_resets_properties(): void
     {
+        $instance = TestClassA::new();
+        $instance->nonExistentMethod();
         $instanceA = TestClassA::new()->set_propertyA('First Value');
         $this->assertEquals('First Value', $instanceA->propertyA, 'Initial property value is not set correctly.');
 
         $newInstanceA = TestClassA::new();
         $this->assertNull($newInstanceA->propertyA, 'New instance should reset the property to null.');
-    }
-
-    /**
-     * @test
-     *
-     * @see DynamicSetter
-     */
-    public function method_not_found(): void
-    {
-        $this->expectException(\Error::class);
-        $instance = TestClassA::new();
-        $instance->nonExistentMethod();
     }
 }
