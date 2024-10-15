@@ -1,8 +1,12 @@
 # `Zerotoprod\DynamicSetter`
+
 [![Repo](https://img.shields.io/badge/github-gray?logo=github)](https://github.com/zero-to-prod/dynamic-setter)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/zero-to-prod/dynamic-setter.svg)](https://packagist.org/packages/zero-to-prod/dynamic-setter)
-![test](https://github.com/zero-to-prod/dynamic-setter/actions/workflows/phpunit.yml/badge.svg)
-![Downloads](https://img.shields.io/packagist/dt/zero-to-prod/dynamic-setter.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/zero-to-prod/dynamic-setter&#41)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/zero-to-prod/dynamic-setter/phpunit.yml?label=tests)](https://github.com/zero-to-prod/dynamic-setter/actions)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/zero-to-prod/dynamic-setter?color=blue)](https://packagist.org/packages/zero-to-prod/dynamic-setter/stats)
+[![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/dynamic-setter?color=f28d1a)](https://packagist.org/packages/zero-to-prod/dynamic-setter)
+[![GitHub repo size](https://img.shields.io/github/repo-size/zero-to-prod/dynamic-setter)](https://github.com/zero-to-prod/dynamic-setter)
+[![License](https://img.shields.io/packagist/l/zero-to-prod/dynamic-setter?color=red)](https://github.com/zero-to-prod/dynamic-setter/blob/main/LICENSE.md)
+
 
 Fluently set class properties with dynamic methods.
 
