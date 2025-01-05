@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Tests\\Unit\\DynamicSetterTest::class_instantiation":0.005,"Tests\\Unit\\DynamicSetterTest::dynamic_setter_sets_property":0.001,"Tests\\Unit\\DynamicSetterTest::chaining_multiple_setters":0,"Tests\\Unit\\DynamicSetterTest::multiple_class_instances_work_independently":0,"Tests\\Unit\\DynamicSetterTest::new_instance_resets_properties":0}}
