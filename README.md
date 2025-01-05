@@ -1,7 +1,7 @@
 # `Zerotoprod\DynamicSetter`
 
 [![Repo](https://img.shields.io/badge/github-gray?logo=github)](https://github.com/zero-to-prod/dynamic-setter)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/zero-to-prod/dynamic-setter/phpunit.yml?label=tests)](https://github.com/zero-to-prod/dynamic-setter/actions)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/zero-to-prod/dynamic-setter/test.yml?label=tests)](https://github.com/zero-to-prod/dynamic-setter/actions)
 [![Packagist Downloads](https://img.shields.io/packagist/dt/zero-to-prod/dynamic-setter?color=blue)](https://packagist.org/packages/zero-to-prod/dynamic-setter/stats)
 [![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/dynamic-setter?color=f28d1a)](https://packagist.org/packages/zero-to-prod/dynamic-setter)
 [![GitHub repo size](https://img.shields.io/github/repo-size/zero-to-prod/dynamic-setter)](https://github.com/zero-to-prod/dynamic-setter)
