@@ -27,7 +27,7 @@ jobs:
           echo "PHPUNIT_DIR=tests/config" >> $GITHUB_ENV
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
-        run: docker compose run --rm composer composer update --no-cache
+        run: docker compose run --rm install --no-cache
 
       - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
         run: docker compose run --rm php vendor/bin/phpunit --configuration "/app/tests/config/${{ matrix.php-version }}/phpunit.xml"
