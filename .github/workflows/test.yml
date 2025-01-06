@@ -24,6 +24,7 @@ jobs:
         run: |
           echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
+          echo "PHP_DEBUG=${{ matrix.php-version }}" >> $GITHUB_ENV
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
         run: docker compose run --rm composer composer update --no-cache
