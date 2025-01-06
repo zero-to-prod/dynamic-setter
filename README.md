@@ -1,4 +1,4 @@
-# `Zerotoprod\DynamicSetter`
+# Zerotoprod\DynamicSetter
 
 [![Repo](https://img.shields.io/badge/github-gray?logo=github)](https://github.com/zero-to-prod/dynamic-setter)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/zero-to-prod/dynamic-setter/test.yml?label=tests)](https://github.com/zero-to-prod/dynamic-setter/actions)
