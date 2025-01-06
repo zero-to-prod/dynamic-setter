@@ -2,12 +2,5 @@ vendor
 .idea
 composer.lock
 .phpunit.result.cache
-/vendor-php71/
-/vendor-php72/
-/vendor-php73/
-/vendor-php74/
-/vendor-php80/
-/vendor-php81/
-/vendor-php82/
-/vendor-php83/
-/vendor-php84/
+/.phpunit.cache/
+.docker
