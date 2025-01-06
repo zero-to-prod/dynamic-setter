@@ -24,6 +24,4 @@ FROM php:7.2-cli AS base
 
 WORKDIR /app
 
-RUN chown -R root:root /app
-
 CMD ["bash"]

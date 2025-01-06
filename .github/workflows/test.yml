@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Allow /app as a safe directory
+        run: git config --global --add safe.directory /app
+
       - name: Create .env
         run: touch .env
 
