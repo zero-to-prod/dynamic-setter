@@ -10,7 +10,7 @@ for version in "${PHP_VERSIONS[@]}"; do
 
   docker compose run --rm composer composer update --no-cache
 
-  if ! docker compose run --rm php vendor/bin/phpunit --configuration "docker/php/${version}/phpunit.xml"
+  if ! docker compose run --rm php vendor/bin/phpunit --configuration "tests/config/${version}/phpunit.xml"
   then
     exit 1
   fi
