@@ -28,4 +28,6 @@ FROM php:8.1-cli AS base
 
 WORKDIR /app
 
+RUN chown -R root:root /app
+
 CMD ["bash"]
