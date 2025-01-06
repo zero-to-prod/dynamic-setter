@@ -27,9 +27,7 @@ jobs:
           echo "PHP_DEBUG=${{ matrix.php-version }}" >> $GITHUB_ENV
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
-        run: |
-          git config --global --add safe.directory /app
-          docker compose run --rm composer composer update --no-cache
+        run: docker compose run --rm composer composer update --no-cache
 
       - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
         run: docker compose run --rm php vendor/bin/phpunit --configuration "docker/php/${{ matrix.php-version }}/phpunit.xml"
