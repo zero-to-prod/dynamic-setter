@@ -17,10 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create .env
+        run: touch .env
+
       - name: Set environment for PHP ${{ matrix.php-version }}
         run: |
           echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
+          echo "PHP_DEBUG=${{ matrix.php-version }}" >> $GITHUB_ENV
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
         run: docker compose run --rm composer composer update --no-cache
