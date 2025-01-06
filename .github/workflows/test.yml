@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [84, 83, 82, 81, 80, 74, 73, 72, 71]
+        php-version: [8.4, 8.3, 8.2, 8.1, 8.0, 7.4, 7.3, 7.2, 7.1]
 
     steps:
       - uses: actions/checkout@v4
@@ -27,4 +27,4 @@ jobs:
 
       - name: Run PHPUnit tests for PHP${{ matrix.php-version }}
         run: |
-          docker compose run --rm php${{ matrix.php-version }} vendor/bin/phpunit --configuration phpunit${{ matrix.php-version }}.xml
+          docker compose run --rm php${{ matrix.php-version }} vendor/bin/phpunit --configuration docker/php/${{ matrix.php-version }}.xml

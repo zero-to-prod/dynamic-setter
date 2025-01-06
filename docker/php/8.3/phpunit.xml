@@ -5,11 +5,10 @@
         bootstrap="/app/vendor/autoload.php"
         beStrictAboutOutputDuringTests="true"
         colors="true"
-
 >
     <testsuites>
         <testsuite name="default">
-            <directory>tests</directory>
+            <directory>/app/tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

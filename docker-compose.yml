@@ -5,6 +5,7 @@ services:
       target: base
     volumes:
       - ./:/app:dedicated
+      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
 
   debug:
     build:
@@ -13,6 +14,7 @@ services:
     volumes:
       - ./:/app:dedicated
       - ./docker/php/7.1/conf:/usr/local/etc/php
+      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
 
   composer:
     build:
@@ -28,6 +30,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php7.1:/app/vendor
+      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
 
   php7.1debug:
     build:
@@ -37,6 +40,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/7.1/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php7.1:/app/vendor
+      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
 
   php7.1composer:
     build:
@@ -53,6 +57,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php7.2:/app/vendor
+      - ./docker/php/7.2/phpunit.xml:/app/phpunit.xml
 
   php7.2debug:
     build:
@@ -62,6 +67,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/7.2/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php7.2:/app/vendor
+      - ./docker/php/7.2/phpunit.xml:/app/phpunit.xml
 
   php7.2composer:
     build:
@@ -78,6 +84,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php7.3:/app/vendor
+      - ./docker/php/7.3/phpunit.xml:/app/phpunit.xml
 
   php7.3debug:
     build:
@@ -87,6 +94,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/7.3/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php7.3:/app/vendor
+      - ./docker/php/7.3/phpunit.xml:/app/phpunit.xml
 
   php7.3composer:
     build:
@@ -103,6 +111,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php7.4:/app/vendor
+      - ./docker/php/7.4/phpunit.xml:/app/phpunit.xml
 
   php7.4debug:
     build:
@@ -112,6 +121,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/7.4/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php7.4:/app/vendor
+      - ./docker/php/7.4/phpunit.xml:/app/phpunit.xml
 
   php7.4composer:
     build:
@@ -128,6 +138,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php8.0:/app/vendor
+      - ./docker/php/8.0/phpunit.xml:/app/phpunit.xml
 
   php8.0debug:
     build:
@@ -137,6 +148,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/8.0/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php8.0:/app/vendor
+      - ./docker/php/8.0/phpunit.xml:/app/phpunit.xml
 
   php8.0composer:
     build:
@@ -153,6 +165,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php8.1:/app/vendor
+      - ./docker/php/8.1/phpunit.xml:/app/phpunit.xml
 
   php8.1debug:
     build:
@@ -162,6 +175,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/8.1/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php8.1:/app/vendor
+      - ./docker/php/8.1/phpunit.xml:/app/phpunit.xml
 
   php8.1composer:
     build:
@@ -178,6 +192,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php8.2:/app/vendor
+      - ./docker/php/8.2/phpunit.xml:/app/phpunit.xml
 
   php8.2debug:
     build:
@@ -187,6 +202,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/8.2/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php8.2:/app/vendor
+      - ./docker/php/8.4/phpunit.xml:/app/phpunit.xml
 
   php8.2composer:
     build:
@@ -203,6 +219,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php8.3:/app/vendor
+      - ./docker/php/8.3/phpunit.xml:/app/phpunit.xml
 
   php8.3debug:
     build:
@@ -212,6 +229,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/8.3/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php8.3:/app/vendor
+      - ./docker/php/8.3/phpunit.xml:/app/phpunit.xml
 
   php8.3composer:
     build:
@@ -228,6 +246,7 @@ services:
     volumes:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php8.4:/app/vendor
+      - ./docker/php/8.4/phpunit.xml:/app/phpunit.xml
 
   php8.4debug:
     build:
@@ -237,6 +256,7 @@ services:
       - ./:/app:delegated
       - ./docker/php/8.4/conf:/usr/local/etc/php
       - ./.docker/vendor-cache/php8.4:/app/vendor
+      - ./docker/php/8.4/phpunit.xml:/app/phpunit.xml
 
   php8.4composer:
     build:
