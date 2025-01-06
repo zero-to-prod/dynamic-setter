@@ -27,4 +27,4 @@ jobs:
 
       - name: Run PHPUnit tests for PHP${{ matrix.php-version }}
         run: |
-          docker compose run --rm php${{ matrix.php-version }} vendor/bin/phpunit --configuration docker/php/${{ matrix.php-version }}.xml
+          docker compose run --rm php${{ matrix.php-version }} vendor/bin/phpunit --configuration /app/docker/php/${{ matrix.php-version }}.xml
