@@ -1,270 +1,36 @@
 services:
   php:
-    build:
-      context: ./docker/php/7.1
-      target: base
     volumes:
-      - ./:/app:dedicated
-      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
+      - ./:/app:delegated
+      - ./.docker/vendor-cache/php${PHP_VERSION}:/app/vendor
+      - ./docker/php/${PHP_VERSION}/phpunit.xml:/app/phpunit.xml
+    build:
+      context: ./docker/php/${PHP_VERSION}
+      target: base
+    env_file:
+      - .env
 
   debug:
-    build:
-      context: ./docker/php/7.1
-      target: debug
     volumes:
-      - ./:/app:dedicated
-      - ./docker/php/7.1/conf:/usr/local/etc/php
-      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
+      - ./:/app:delegated
+      - ./.docker/vendor-cache/php${PHP_DEBUG}:/app/vendor
+      - ./docker/php/${PHP_DEBUG}/phpunit.xml:/app/phpunit.xml
+      - ./docker/php/${PHP_DEBUG}/conf:/usr/local/etc/php
+    build:
+      context: ./docker/php/${PHP_DEBUG}
+      target: debug
+    env_file:
+      - .env
 
   composer:
+    volumes:
+      - ./:/app:delegated
+      - ./.docker/vendor-cache/php${PHP_COMPOSER}:/app/vendor
     build:
-      context: ./docker/php/7.1
+      context: ./docker/php/${PHP_COMPOSER}
       target: composer
-    volumes:
-      - ./:/app
-
-  php7.1:
-    build:
-      context: ./docker/php/7.1
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.1:/app/vendor
-      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
-
-  php7.1debug:
-    build:
-      context: ./docker/php/7.1
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/7.1/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php7.1:/app/vendor
-      - ./docker/php/7.1/phpunit.xml:/app/phpunit.xml
-
-  php7.1composer:
-    build:
-      context: ./docker/php/7.1
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.1:/app/vendor
-
-  php7.2:
-    build:
-      context: ./docker/php/7.2
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.2:/app/vendor
-      - ./docker/php/7.2/phpunit.xml:/app/phpunit.xml
-
-  php7.2debug:
-    build:
-      context: ./docker/php/7.2
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/7.2/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php7.2:/app/vendor
-      - ./docker/php/7.2/phpunit.xml:/app/phpunit.xml
-
-  php7.2composer:
-    build:
-      context: ./docker/php/7.2
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.2:/app/vendor
-
-  php7.3:
-    build:
-      context: ./docker/php/7.3
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.3:/app/vendor
-      - ./docker/php/7.3/phpunit.xml:/app/phpunit.xml
-
-  php7.3debug:
-    build:
-      context: ./docker/php/7.3
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/7.3/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php7.3:/app/vendor
-      - ./docker/php/7.3/phpunit.xml:/app/phpunit.xml
-
-  php7.3composer:
-    build:
-      context: ./docker/php/7.3
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.3:/app/vendor
-
-  php7.4:
-    build:
-      context: ./docker/php/7.4
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.4:/app/vendor
-      - ./docker/php/7.4/phpunit.xml:/app/phpunit.xml
-
-  php7.4debug:
-    build:
-      context: ./docker/php/7.4
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/7.4/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php7.4:/app/vendor
-      - ./docker/php/7.4/phpunit.xml:/app/phpunit.xml
-
-  php7.4composer:
-    build:
-      context: ./docker/php/7.4
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php7.4:/app/vendor
-
-  php8.0:
-    build:
-      context: ./docker/php/8.0
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.0:/app/vendor
-      - ./docker/php/8.0/phpunit.xml:/app/phpunit.xml
-
-  php8.0debug:
-    build:
-      context: ./docker/php/8.0
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/8.0/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php8.0:/app/vendor
-      - ./docker/php/8.0/phpunit.xml:/app/phpunit.xml
-
-  php8.0composer:
-    build:
-      context: ./docker/php/8.0
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.0:/app/vendor
-
-  php8.1:
-    build:
-      context: ./docker/php/8.1
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.1:/app/vendor
-      - ./docker/php/8.1/phpunit.xml:/app/phpunit.xml
-
-  php8.1debug:
-    build:
-      context: ./docker/php/8.1
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/8.1/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php8.1:/app/vendor
-      - ./docker/php/8.1/phpunit.xml:/app/phpunit.xml
-
-  php8.1composer:
-    build:
-      context: ./docker/php/8.1
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.1:/app/vendor
-
-  php8.2:
-    build:
-      context: ./docker/php/8.2
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.2:/app/vendor
-      - ./docker/php/8.2/phpunit.xml:/app/phpunit.xml
-
-  php8.2debug:
-    build:
-      context: ./docker/php/8.2
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/8.2/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php8.2:/app/vendor
-      - ./docker/php/8.4/phpunit.xml:/app/phpunit.xml
-
-  php8.2composer:
-    build:
-      context: ./docker/php/8.2
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.2:/app/vendor
-
-  php8.3:
-    build:
-      context: ./docker/php/8.3
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.3:/app/vendor
-      - ./docker/php/8.3/phpunit.xml:/app/phpunit.xml
-
-  php8.3debug:
-    build:
-      context: ./docker/php/8.3
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/8.3/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php8.3:/app/vendor
-      - ./docker/php/8.3/phpunit.xml:/app/phpunit.xml
-
-  php8.3composer:
-    build:
-      context: ./docker/php/8.3
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.3:/app/vendor
-
-  php8.4:
-    build:
-      context: ./docker/php/8.4
-      target: base
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.4:/app/vendor
-      - ./docker/php/8.4/phpunit.xml:/app/phpunit.xml
-
-  php8.4debug:
-    build:
-      context: ./docker/php/8.4
-      target: debug
-    volumes:
-      - ./:/app:delegated
-      - ./docker/php/8.4/conf:/usr/local/etc/php
-      - ./.docker/vendor-cache/php8.4:/app/vendor
-      - ./docker/php/8.4/phpunit.xml:/app/phpunit.xml
-
-  php8.4composer:
-    build:
-      context: ./docker/php/8.4
-      target: composer
-    volumes:
-      - ./:/app:delegated
-      - ./.docker/vendor-cache/php8.4:/app/vendor
+    env_file:
+      - .env
 
 networks:
   default:

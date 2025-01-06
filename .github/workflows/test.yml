@@ -9,10 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:20.10.7
-        options: --privileged
 
     strategy:
       matrix:
@@ -21,10 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install dependencies for PHP${{ matrix.php-version }}
+      - name: Set environment for PHP ${{ matrix.php-version }}
         run: |
-          docker compose run --rm php${{ matrix.php-version }}composer composer update --no-cache
+          echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
+          echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
 
-      - name: Run PHPUnit tests for PHP${{ matrix.php-version }}
-        run: |
-          docker compose run --rm php${{ matrix.php-version }} vendor/bin/phpunit --configuration docker/php/${{ matrix.php-version }}/phpunit.xml
+      - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
+        run: docker compose run --rm composer composer update --no-cache
+
+      - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
+        run: docker compose run --rm php vendor/bin/phpunit --configuration "docker/php/${{ matrix.php-version }}/phpunit.xml"
