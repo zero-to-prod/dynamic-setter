@@ -5,7 +5,7 @@ services:
       - ./.docker/vendor-cache/php${PHP_VERSION}:/app/vendor
       - ./docker/php/${PHP_VERSION}/phpunit.xml:/app/phpunit.xml
     build:
-      context: ./docker/php/${PHP_VERSION}
+      context: ./docker/php/${PHP_VERSION-7.1}
       target: base
     env_file:
       - .env
@@ -17,7 +17,7 @@ services:
       - ./docker/php/${PHP_DEBUG}/phpunit.xml:/app/phpunit.xml
       - ./docker/php/${PHP_DEBUG}/conf:/usr/local/etc/php
     build:
-      context: ./docker/php/${PHP_DEBUG}
+      context: ./docker/php/${PHP_DEBUG-7.1}
       target: debug
     env_file:
       - .env
@@ -27,7 +27,7 @@ services:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php${PHP_COMPOSER}:/app/vendor
     build:
-      context: ./docker/php/${PHP_COMPOSER}
+      context: ./docker/php/${PHP_COMPOSER-7.1}
       target: composer
     env_file:
       - .env
