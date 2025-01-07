@@ -32,10 +32,8 @@ jobs:
         run: |
           echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
+          echo "PHP_DEBUG=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHPUNIT_DIR=tests/config" >> $GITHUB_ENV
-
-      - name: Build Docker images
-        run: docker compose build
 
       - name: Run PHPUnit tests
         run: docker compose run --rm php \
