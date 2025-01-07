@@ -25,17 +25,19 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
 
-      - name: Install PHP dependencies
-        run: |
-          COMPOSER_VENDOR_DIR="./.docker/vendor-cache/php${{ matrix.php-version }}" composer -nqq update
-          composer install --no-interaction --no-suggest --prefer-dist
-
       - name: Set environment for PHP ${{ matrix.php-version }}
         run: |
           echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_DEBUG=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHPUNIT_DIR=tests/config" >> $GITHUB_ENV
+
+      - name: Install PHP dependencies
+        run: |
+          COMPOSER_VENDOR_DIR="./.docker/vendor-cache/php${{ matrix.php-version }}" composer -nqq update
+          composer install --no-interaction --no-suggest --prefer-dist
+          rm composer.lock
+          docker compose run composer install
 
       - name: Run PHPUnit tests
         run: docker compose run --rm php \
