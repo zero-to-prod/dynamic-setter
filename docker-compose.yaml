@@ -5,7 +5,7 @@ services:
       - ./.docker/vendor-cache/php${PHP_VERSION:-8.4}:/app/vendor
       - ./tests/config/${PHP_VERSION:-8.4}/phpunit.xml:/app/phpunit.xml
     build:
-      context: ./vendor/zero-to-prod/dock/runtimes/${PHP_VERSION:-8.4}
+      context: ./docker/${PHP_VERSION:-8.4}
       target: base
     env_file:
       - .env
@@ -15,9 +15,9 @@ services:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php${PHP_DEBUG:-8.4}:/app/vendor
       - ./tests/config/${PHP_VERSION:-8.4}/phpunit.xml:/app/phpunit.xml
-      - ./vendor/zero-to-prod/dock/runtimes/${PHP_DEBUG:-8.4}/conf:/usr/local/etc/php
+      - ./docker/${PHP_DEBUG:-8.4}/conf:/usr/local/etc/php
     build:
-      context: ./vendor/zero-to-prod/dock/runtimes/${PHP_DEBUG:-8.4}
+      context: ./docker/${PHP_DEBUG:-8.4}
       target: debug
     env_file:
       - .env
@@ -27,7 +27,7 @@ services:
       - ./:/app:delegated
       - ./.docker/vendor-cache/php${PHP_COMPOSER:-8.4}:/app/vendor
     build:
-      context: ./vendor/zero-to-prod/dock/runtimes/${PHP_COMPOSER:-8.4}
+      context: ./docker/${PHP_COMPOSER:-8.4}
       target: composer
     env_file:
       - .env

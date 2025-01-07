@@ -9,7 +9,6 @@ run_service() {
   local service=$1
   shift
   if ! docker compose run --rm "$service" "$@"; then
-    echo "Error: Command failed for service $service."
     exit 1
   fi
 }
