@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["7.1"]
+        php-version: ["8.4", "8.3", "8.2", "8.1", "8.0", "7.4", "7.3", "7.2", "7.1"]
 
     steps:
       - uses: actions/checkout@v4
@@ -20,17 +20,24 @@ jobs:
       - name: Create .env
         run: touch .env
 
+      - name: Setup PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v3
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --no-suggest --prefer-dist
+
       - name: Set environment for PHP ${{ matrix.php-version }}
         run: |
           echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHPUNIT_DIR=tests/config" >> $GITHUB_ENV
 
-      - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
-        run: |
-          docker compose run install
-          rm composer.lock
-          docker compose run --rm composer composer install
+      - name: Build Docker images
+        run: docker compose build
 
-      - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
-        run: docker compose run --rm php ./vendor/bin/phpunit --configuration "/app/tests/config/${{ matrix.php-version }}/phpunit.xml"
+      - name: Run PHPUnit tests
+        run: docker compose run --rm php \
+          vendor/bin/phpunit \
+          --configuration "/app/tests/config/${{ matrix.php-version }}/phpunit.xml"
