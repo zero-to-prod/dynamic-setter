@@ -8,9 +8,9 @@ for version in "${PHP_VERSIONS[@]}"; do
   export PHP_COMPOSER="${version}"
   export PHP_VERSION="${version}"
 
-  docker compose run --rm composer composer update --no-cache
+  sh dock composer update --no-cache
 
-  if ! docker compose run --rm php vendor/bin/phpunit --configuration "docker/php/${version}/phpunit.xml"
+  if ! sh dock test
   then
     exit 1
   fi
