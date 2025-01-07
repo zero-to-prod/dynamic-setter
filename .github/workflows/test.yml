@@ -2,9 +2,9 @@ name: tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [ "8.4", "8.3", "8.2", "8.1", "8.0", "7.4", "7.3", "7.2", "7.1" ]
+        php-version: ["8.4", "8.3", "8.2", "8.1", "8.0", "7.4", "7.3", "7.2", "7.1"]
 
     steps:
       - uses: actions/checkout@v4
@@ -27,6 +27,7 @@ jobs:
           echo "PHPUNIT_DIR=tests/config" >> $GITHUB_ENV
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
-        run: |
-          docker compose run --rm install
-          docker compose run --rm php vendor/bin/phpunit --configuration "/app/tests/config/${{ matrix.php-version }}/phpunit.xml"
+        run: docker compose run --rm install
+
+      - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
+        run: docker compose run --rm php ./vendor/bin/phpunit --configuration "/app/tests/config/${{ matrix.php-version }}/phpunit.xml"
