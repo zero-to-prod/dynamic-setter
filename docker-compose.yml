@@ -40,4 +40,4 @@ services:
       - ./.docker/vendor-cache/php${PHP_COMPOSER:-8.4}:/app/vendor
     env_file:
       - .env
-    command: ["composer", "install"]
+    command: ["composer", "require", "zero-to-prod/dock", "--dev"]

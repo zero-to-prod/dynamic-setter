@@ -25,11 +25,11 @@ jobs:
           echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
           echo "PHPUNIT_DIR=tests/config" >> $GITHUB_ENV
-          /usr/bin/git config --global --add safe.directory /home/runner/work/dynamic-setter/dynamic-setter/vendor/zero-to-prod/dock/runtimes/${{ matrix.php-version }}
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
         run: |
-          docker compose run --rm install
+          docker compose run install
+          rm composer.lock
           docker compose run --rm composer composer install
 
       - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
