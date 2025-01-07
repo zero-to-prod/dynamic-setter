@@ -37,6 +37,7 @@ jobs:
           COMPOSER_VENDOR_DIR="./.docker/vendor-cache/php${{ matrix.php-version }}" composer -nqq update
           composer install --no-interaction --no-suggest --prefer-dist
           rm composer.lock
+          docker compose build
           docker compose run composer install
 
       - name: Run PHPUnit tests
