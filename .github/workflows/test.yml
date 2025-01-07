@@ -26,7 +26,9 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Install PHP dependencies
-        run: composer install --vendor-dir="./.docker/vendor-cache/php${{ matrix.php-version }}" --no-interaction --no-suggest --prefer-dist
+        run: |
+          COMPOSER_VENDOR_DIR="./.docker/vendor-cache/php${{ matrix.php-version }}" composer -nqq update
+          composer install --no-interaction --no-suggest --prefer-dist
 
       - name: Set environment for PHP ${{ matrix.php-version }}
         run: |
