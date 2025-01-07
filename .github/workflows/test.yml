@@ -29,7 +29,7 @@ jobs:
 
       - name: Install dependencies (composer update) for PHP ${{ matrix.php-version }}
         run: |
-          docker compose run build install
+          docker compose build install
           docker compose run --rm install
 
       - name: Run PHPUnit tests for PHP ${{ matrix.php-version }}
