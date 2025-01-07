@@ -20,10 +20,10 @@ jobs:
       - name: Create .env
         run: touch .env
 
-      - name: Set environment for PHP ${{ matrix.php-version }}
+      - name: Set PHP version in .env
         run: |
-          echo "PHP_COMPOSER=${{ matrix.php-version }}" >> $GITHUB_ENV
-          echo "PHP_VERSION=${{ matrix.php-version }}" >> $GITHUB_ENV
+          echo "PHP_COMPOSER=${{ matrix.php-version }}" >> .env
+          echo "PHP_VERSION=${{ matrix.php-version }}" >> .env
 
       - name: Install dependencies (composer update) for PHP
         run: sh dock composer update
