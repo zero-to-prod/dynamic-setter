@@ -19,7 +19,7 @@ case "$1" in
     ;;
   composer)
     shift
-    run_service composer composer "$@"
+    run_service composer "composer${PHP_VERSION}" "$@"
     ;;
   *)
     run_service "$@"
