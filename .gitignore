@@ -5,4 +5,4 @@ composer.lock
 .phpunit.result.cache
 /.vendor/
 .docker
-test-results
+test-results.vendor/
