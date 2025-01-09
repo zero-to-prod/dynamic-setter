@@ -125,14 +125,18 @@ sh dock composer update
 
 ### Testing
 
-Run the test suite by executing:
+This command runs PHPUnit inside the Docker container, using the PHP version specified in your `.env` file.
+You can modify or extend this script to include additional tests or commands as needed.
 
 ```shell
 sh dock test
 ```
 
-This command runs PHPUnit inside the Docker container, using the PHP version specified in your `.env` file.
-You can modify or extend this script to include additional tests or commands as needed.
+Run the test suite with all versions of php:
+
+```shell
+sh test.sh
+```
 
 ### Configuration
 
