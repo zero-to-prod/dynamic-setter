@@ -5,12 +5,9 @@ PHP_VERSIONS=("8.4" "8.3" "8.2" "8.1" "8.0" "7.4" "7.3" "7.2" "7.1")
 
 for version in "${PHP_VERSIONS[@]}"; do
 
-  export PHP_COMPOSER="${version}"
-  export PHP_VERSION="${version}"
+  docker compose run --rm "composer${version}" composer update
 
-  sh dock composer update --no-cache
-
-  if ! sh dock test
+  if ! docker compose run --rm "php${version}" ./vendor/bin/phpunit
   then
     exit 1
   fi
