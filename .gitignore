@@ -3,6 +3,6 @@ vendor
 .idea
 composer.lock
 .phpunit.result.cache
-/.vendor/
 .docker
-test-results.vendor/
+test-results
+.vendor/
