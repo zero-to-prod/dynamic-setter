@@ -104,7 +104,7 @@ echo $customer->address->postalCode;    // Output: 10001
 
 ## Local Development
 
-This project provides a convenient `dock` script to simplify local development workflows within Docker containers.
+This project provides a convenient [dock](https://github.com/zero-to-prod/dock) script to simplify local development workflows within Docker containers.
 
 You can use this script to initialize the project, manage Composer dependencies, and run tests in a consistent PHP environment.
 
