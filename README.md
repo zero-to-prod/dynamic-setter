@@ -17,7 +17,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
     - [Nested Objects](#nested-objects)
-- [Contributing](#contributing)
 - [Local Development](#local-development)
     - [Prerequisites](#prerequisites)
     - [Initializing](#initializing)
@@ -156,7 +155,7 @@ If the `.env` file does not exist, run the `sh dock init` command to create one 
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues](https://github.com/zero-to-prod/omdb/issues) page if you want to contribute.
+Feel free to check the [issues](https://github.com/zero-to-prod/dynamic-setter/issues) page if you want to contribute.
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
