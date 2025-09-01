@@ -3,8 +3,6 @@
 namespace Zerotoprod\DynamicSetter;
 
 /**
- * Fluently set class properties with dynamic methods.
- *
  * @link https://github.com/zero-to-prod/dynamic-setter
  */
 trait DynamicSetter
