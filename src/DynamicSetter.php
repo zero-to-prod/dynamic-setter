@@ -2,6 +2,9 @@
 
 namespace Zerotoprod\DynamicSetter;
 
+/**
+ * @link https://github.com/zero-to-prod/dynamic-setter
+ */
 trait DynamicSetter
 {
 
